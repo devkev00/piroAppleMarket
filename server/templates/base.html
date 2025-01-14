@@ -14,6 +14,16 @@
 <body>
   <main>
     <a href="/" id='logo' style='text-decoration: none; color: green;'><h1>🍎 사과 마켓 🍎</h1></a>
+    {% comment %}
+    <footer style="display: flex; justify-content: center; align-items: center;">
+    <a href="{% url 'users:create' %}" class="mx-2">
+      <button type="button" class="btn btn-info">사용자 추가</button>
+    </a>
+    <a href="{% url 'users:list' %}" class="mx-2">
+      <button type="button" class="btn btn-warning">사용자 관리</button>
+    </a>
+    </footer>
+    {% endcomment %}
     <hr>
     {%block content%}
       
