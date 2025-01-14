@@ -10,7 +10,7 @@ def main(request):
     min_price = request.GET.get("min_price")
     max_price = request.GET.get("max_price")
 
-    if search_txt:
+    if search_txt: # 검색어가 있는 경우
       posts = Post.objects.filter(title__contains=search_txt)
 
     if min_price or max_price: # 최소 / 최대 가격 중 하나만 쿼리에 담기는 경우
@@ -48,7 +48,12 @@ def create(request):
 
 def detail(request, pk):
   target_post = Post.objects.get(id = pk)
-  ctx = {'post' : target_post,}
+  user = target_post.user
+  related_posts = user.post_set.exclude(id = pk)
+
+  ctx = {'post' : target_post,
+         'related_posts' : related_posts
+         }
   return render(request, 'posts/detail.html', context=ctx)
   
   
