@@ -16,8 +16,9 @@
   <body>
     {%block content%}
     <form
-      action="/posts/create"
+      action="{% url 'posts:create' %}"
       method="post"
+      enctype="multipart/form-data"
     >
       {%csrf_token%} {{form.as_p}}
       <button class="btn btn-success">등록하기</button>

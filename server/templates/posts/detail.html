@@ -40,10 +40,10 @@
 
     
     <hr />
-    <a href="/posts/update/{{post.pk}}" class="btn btn-primary"
+    <a href="{% url 'posts:update' post.pk %}" class="btn btn-primary"
       >수정하기</a
     >
-    <a href="/posts/delete/{{post.pk}}" class="btn btn-danger"
+    <a href="{% url 'posts:delete' post.pk %}" class="btn btn-danger"
       >삭제하기</a
     >
     {% endblock content %}

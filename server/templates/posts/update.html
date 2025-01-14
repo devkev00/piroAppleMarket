@@ -17,7 +17,7 @@
   <body>
     {%block content%}
     <form
-      action="/posts/update/{{pk}}"
+      action="{% url 'posts:update' pk %}"
       method="post"
       enctype="multipart/form-data"
     >
